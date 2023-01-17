@@ -1,20 +1,21 @@
-using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Targets : MonoBehaviour
 {
     private Rigidbody _targetRb;
     private float _ySpawnPos, _xRange, _maxTorque, _maxSpeed, _minSpeed;
+    private GameManager _gameManager;
 
     private void Awake()
     {
         _targetRb = GetComponent<Rigidbody>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _ySpawnPos = -6f;
         _xRange = 4f;
         _maxTorque = 10f;
         _maxSpeed = 16f;
         _minSpeed = 12f;
+        
     }
 
     private void Start()
@@ -42,6 +43,7 @@ public class Targets : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        _gameManager.UpdateScore(5);
     }
 
     private void OnTriggerEnter(Collider other)
