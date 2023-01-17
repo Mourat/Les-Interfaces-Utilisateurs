@@ -8,6 +8,11 @@ public class Targets : MonoBehaviour
     private void Awake()
     {
         _targetRb = GetComponent<Rigidbody>();
+        _ySpawnPos = -6f;
+        _xRange = 4f;
+        _maxTorque = 10f;
+        _maxSpeed = 16f;
+        _minSpeed = 12f;
     }
 
     private void Start()
