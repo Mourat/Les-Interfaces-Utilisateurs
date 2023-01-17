@@ -6,6 +6,8 @@ public class Targets : MonoBehaviour
     private float _ySpawnPos, _xRange, _maxTorque, _maxSpeed, _minSpeed;
     private GameManager _gameManager;
 
+    [SerializeField] private int pointValue;
+
     private void Awake()
     {
         _targetRb = GetComponent<Rigidbody>();
@@ -43,7 +45,7 @@ public class Targets : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
-        _gameManager.UpdateScore(5);
+        _gameManager.UpdateScore(pointValue);
     }
 
     private void OnTriggerEnter(Collider other)
