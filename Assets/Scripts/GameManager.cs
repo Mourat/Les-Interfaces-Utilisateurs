@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _spawnRate = 1f;
-        _score = 0;
-        scoreText.text = "Score: " + _score;
+        UpdateScore(0);
+
     }
 
     private void Start()
@@ -30,6 +30,13 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(_spawnRate);
             var index = Random.Range(0, targets.Count);
             Instantiate(targets[index]);
+            UpdateScore(5);
         }
+    }
+
+    private void UpdateScore(int scoreToAdd)
+    {
+        _score += scoreToAdd;
+        scoreText.text = "Score: " + _score;
     }
 }
