@@ -13,14 +13,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _spawnRate = 1f;
-        // _score = 0;
+        _score = 0;
+        scoreText.text = "Score: " + _score;
     }
 
     private void Start()
     {
         StartCoroutine(SpawnTarget());
-        _score = 0;
-        scoreText.text = "Score: " + _score;
+        
     }
 
     IEnumerator SpawnTarget()
