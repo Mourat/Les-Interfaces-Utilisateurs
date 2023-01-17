@@ -3,6 +3,7 @@ using UnityEngine;
 public class Targets : MonoBehaviour
 {
     private Rigidbody _targetRb;
+    private float _ySpawnPos, _xRange, _maxTorque, _maxSpeed, _minSpeed;
 
     private void Awake()
     {
@@ -11,8 +12,23 @@ public class Targets : MonoBehaviour
 
     private void Start()
     {
-        _targetRb.AddForce(Vector3.up * Random.Range(12, 16), ForceMode.Impulse);
-        _targetRb.AddTorque(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10), ForceMode.Impulse);
-        transform.position = new Vector3(Random.Range(-4, 4), -6);
+        _targetRb.AddForce(RandomForce(), ForceMode.Impulse);
+        _targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
+        transform.position = RandomSpawnPos();
+    }
+
+    private Vector3 RandomForce()
+    {
+        return Vector3.up * Random.Range(_minSpeed, _maxSpeed);
+    }
+
+    private float RandomTorque()
+    {
+        return Random.Range(-_maxSpeed, _maxTorque);
+    }
+
+    private Vector3 RandomSpawnPos()
+    {
+        return new Vector3(Random.Range(-_xRange, _xRange), _ySpawnPos);
     }
 }
