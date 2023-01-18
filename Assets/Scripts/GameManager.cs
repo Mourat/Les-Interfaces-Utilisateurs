@@ -8,13 +8,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> targets;
     private float _spawnRate;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI gameOverText;
     private int _score;
 
     private void Awake()
     {
         _spawnRate = 1f;
         UpdateScore(0);
-
+        gameOverText.gameObject.SetActive(true);
     }
 
     private void Start()
@@ -37,5 +38,10 @@ public class GameManager : MonoBehaviour
     {
         _score += scoreToAdd;
         scoreText.text = "Score: " + _score;
+    }
+
+    public void GameOver()
+    {
+        
     }
 }
