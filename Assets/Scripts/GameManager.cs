@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnTarget());
-        
     }
 
     IEnumerator SpawnTarget()
@@ -42,6 +41,5 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        
     }
 }
