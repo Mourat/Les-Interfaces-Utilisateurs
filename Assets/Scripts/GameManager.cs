@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     {
         _spawnRate = 1f;
         UpdateScore(0);
-        gameOverText.gameObject.SetActive(true);
     }
 
     private void Start()
@@ -41,5 +40,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOverText.gameObject.SetActive(true);
     }
 }
